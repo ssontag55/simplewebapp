@@ -53,7 +53,6 @@ function getLayerList(){
   });*/
   //Open weather API does not go back to May
 
-
   //TODO add Date config --201705151320--
   me.weatherLayer = L.tileLayer('https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/ridge::USCOMP-N0Q-201705151320/{z}/{x}/{y}.png?', {opacity: .3});
 
