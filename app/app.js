@@ -47,10 +47,15 @@ function getLayerList(){
   }); 
 
   //limited by date -- only showing current time
-  me.weatherLayer = L.esri.dynamicMapLayer({
+  /*me.weatherLayer = L.esri.dynamicMapLayer({
     url: "https://nowcoast.noaa.gov/arcgis/rest/services/nowcoast/radar_meteo_imagery_nexrad_time/MapServer",
     opacity: .2
-  });
+  });*/
+  //Open weather API does not go back to May
+
+
+  //TODO add Date config --201705151320--
+  me.weatherLayer = L.tileLayer('https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/ridge::USCOMP-N0Q-201705151320/{z}/{x}/{y}.png?', {opacity: .3});
 
   me.weatherLayer.addTo(me.map);
 }
@@ -73,6 +78,7 @@ function getIncidentConfig(){
       $('#incidentStart').text("Start: "+ data.description.event_opened);
       $('#incidentEnd').text("End: "+ data.description.event_closed);       
 
+      //TODO -- Filter Values by Date
       for (var group in data.apparatus){
          var veh = data.apparatus[group];
          var vehColor = getRandomColor();//'#'+veh.car_id  this is not unique enough
@@ -142,4 +148,11 @@ function getRandomColor() {
     color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
+}
+
+//TODO 
+function updateMapTime(date){
+
+  var newDate = date;//201705151320
+  //me.weatherLayer = L.tileLayer('https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/ridge::USCOMP-N0Q-'+newDate+'/{z}/{x}/{y}.png?', {opacity: .3});
 }

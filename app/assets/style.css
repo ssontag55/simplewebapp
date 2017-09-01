@@ -6,7 +6,7 @@ html,
       height: 100%;
       width: 100%;
     } 
-    #homeDiv {
+    #timesliderDiv {
       right: 15px;
       top: 160px;
       z-index: 35;

@@ -18,22 +18,17 @@
     integrity="sha512-ECQqaYZke9cSdqlFG08zSkudgrdF6I1d8ViSa7I3VIszJyVqw4ng1G8sehEXlumdMnFYfzY0tMgdQa4WCs9IUw=="
     crossorigin=""></script>
   <script src="./app.js"></script>
-  <script src="./lib/leaflet.awesome-markers.min.js"></script> 
   <!-- <script src="./lib/turf.min.js"></script>  for further spatial analysis -->
   <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
   <div id="viewDiv">
   </div>
-  <div id="homeDiv">
-  </div>
   <div id="BasemapToggle"></div>
   <div id="sizeInputDiv">
-    <label>
-    Incident Management
-    </label>
-    <br>
-    <br>
+    <h3>
+    VA Incident Management
+    </h3>
     <img src="./assets/indeterminate.gif" id="loadinggf" style="float:right;">
     <div style="padding-right: 13px;max-width: 240px">
       <label id="incidentID"></label>
@@ -71,6 +66,7 @@
       <option value="ShadedRelief">Shaded Relief</option>
     </select>
   </div>
+  <div id='timesliderDiv'></div>
   <script>
     startupMap();
   </script>
