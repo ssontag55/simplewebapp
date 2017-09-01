@@ -5,12 +5,16 @@
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta name="description" content="PE">
   <title>Prominent Edge App</title>
-  <link rel="stylesheet" href="./assets/leaflet.css">
-  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+    integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+    crossorigin=""/>
   <script src="./lib/jquery-3.1.1.min.js"></script>
-  <script src="./lib/leaflet.min.js"></script>
-  <script src="./lib/esri-leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/esri-leaflet@2.1.1/dist/esri-leaflet.js"
+    integrity="sha512-ECQqaYZke9cSdqlFG08zSkudgrdF6I1d8ViSa7I3VIszJyVqw4ng1G8sehEXlumdMnFYfzY0tMgdQa4WCs9IUw=="
+    crossorigin=""></script>
   <script src="./app.js"></script> 
+  <link rel="stylesheet" href="./assets/style.css">
   <!-- <script src="./lib/turf.min.js"></script>  -->
 </head>
 <body>
@@ -25,12 +29,17 @@
     </label>
     <br>
     <br>
-    <button id="refreshDataID" style="width: 148px;">Loading Layers...</button>
     <img src="./assets/indeterminate.gif" id="loadinggf" style="float:right;">
-    <div style="float: right;padding-right: 13px;">
-      <input type="checkbox" id="interpLayerToggle" checked style="margin-right:29px">
+    <div style="padding-right: 13px;">
+      <br>
+      <input type="checkbox" id="interpLayerToggle" checked>
+      <label for="genheat">Parcels</label>
+      <br>
+      <input type="checkbox" id="responseToggle" checked>
       <label for="genheat">Response</label>
-      <input type="checkbox" id="genheat">
+      <br>
+      <input type="checkbox" id="weatherToggle">
+      <label for="genheat">Weather</label>
     </div>
   </div>
   <div id="basemaps-wrapper" class="leaflet-bar">
@@ -39,7 +48,6 @@
       <option value="Topographic">Topographic</option>
       <option value="Streets">Streets</option>
       <option value="Oceans">Oceans</option>
-      <option value="DarkGray">Dark Gray</option>
       <option value="Imagery">Imagery</option>
       <option value="ShadedRelief">Shaded Relief</option>
     </select>

@@ -19,6 +19,7 @@ html,
       padding: 12px;
       background-color: rgba(0, 0, 0, 0.5);
       color: white;
+      z-index: 10000;
     }
     #basemaps-wrapper {
       position: absolute;

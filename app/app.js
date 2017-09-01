@@ -16,11 +16,43 @@ function startupMap(){
 
     getLayerList();
 
+    getIncidentConfig();
 }
 
 function getLayerList(){
 
+
+  //limitting features -- super slow service
+  var parcels = L.esri.featureLayer({
+    url: "http://gis.richmondgov.com/ArcGIS/rest/services/WebMercator/Parcels/MapServer/2",
+    onEachFeature: function (feature, layer) {
+      var popupContent = L.Util.template('<p><b>Parcel SQ Feet</b> - {LandSqFt}<br><br><b>Total Value</b> - $' + '{TotalValue}' + '<br><b>Property Class</b> - {PropertyClass} <br><b>Owner Info</b> - {OwnerName}<br><b>Address</b> - {MailAddress}<br><b>City</b> - {MailCity}<br><b>Land Use</b> - {LandUse}</p>',feature.properties);
+      
+      layer.bindPopup(popupContent);
+    },
+    style: function (feature) {
+          return {color: '#bada55', weight: 2 };
+      }
+  });
+  parcels.addTo(me.map);
+
+  parcels.on('mouseover', function (e) {
+      e.layer.openPopup();
+  });
+  parcels.on('mouseout', function (e) {
+      e.layer.closePopup();
+  });
   
+}
+
+function getIncidentConfig(){
+
+  $.getJSON( "data/F01705150050.json", function( data ) {
+      //me.map.flyTo([data.address.latitude,data.address.longitude],13);
+      me.map.setView([data.address.latitude,data.address.longitude],13);      
+  });
+
+  $('#loadinggf').hide();
 }
 
 /* Set Basemap */

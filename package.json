@@ -12,7 +12,8 @@
     "url": "https://github.com/ssontag55/simplewebapp.git"
   },
   "keywords": [
-    "geo"
+    "geo",
+    "mapping"
   ],
   "devDependencies": {
   },
