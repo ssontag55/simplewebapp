@@ -12,6 +12,7 @@ Uses Node.js for Web Server
 $ npm install opn
 $ npm install express
 $ npm install request
+$ npm install http-proxy
 ```
 
 ### Run

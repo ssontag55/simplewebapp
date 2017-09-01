@@ -19,7 +19,7 @@ Notes
 * It would be sufficient for the app to only handle one CAD file at a time.
 * The incident location and attributes should be displayed on a map in the browser.
 * You can enrich the incident and get it on a map however you wish.
-* We would like for you to spend up to 4 hours. It is okay if you spend less time or more time so long as you have a working app.
+* e Wwould like for you to spend up to 4 hours. It is okay if you spend less time or more time so long as you have a working app.
 * Use technology stack of your choice.
 
 Deliverable
