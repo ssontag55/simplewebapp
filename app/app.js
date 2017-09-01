@@ -4,6 +4,7 @@ function startupMap(){
     me.responseLayer = [];
     me.weatherLayer = [];
     me.parcelLayer = [];
+    me.vehLocations = [];
 
     me.map = L.map('viewDiv').setView([30.458,-91.1811], 15);
     me.layer = L.esri.basemapLayer('Gray').addTo(map);
@@ -58,7 +59,7 @@ function getIncidentConfig(){
 
   $.getJSON( "data/F01705150050.json", function( data ) {
       //me.map.flyTo([data.address.latitude,data.address.longitude],13);
-      me.map.setView([data.address.latitude,data.address.longitude],15);      
+      me.map.setView([data.address.latitude,data.address.longitude],14);      
 
       var alertIcon = L.icon({
         iconUrl: 'assets/alert.gif',
@@ -72,6 +73,20 @@ function getIncidentConfig(){
       $('#incidentStart').text("Start: "+ data.description.event_opened);
       $('#incidentEnd').text("End: "+ data.description.event_closed);       
 
+      for (var group in data.apparatus){
+         var veh = data.apparatus[group];
+         var vehColor = getRandomColor();//'#'+veh.car_id  this is not unique enough
+
+         for (var vehIndex in veh.unit_status){
+
+            vehLocations.push(L.circle([veh.unit_status[vehIndex].latitude, veh.unit_status[vehIndex].longitude], {radius: 120, color:vehColor}).bindPopup("Car ID:  " + veh.car_id +"<br>Vehicle Type: " +veh.unit_type +"<br>Location Time: " + veh.unit_status[vehIndex].timestamp));
+         }  
+      }
+
+      me.responseLayer = L.layerGroup(vehLocations);
+
+      me.responseLayer.addTo(me.map);
+
       $('#loadinggf').hide();
   });
 }
@@ -79,7 +94,7 @@ function getIncidentConfig(){
 function updateresponseLayer(){
 
   if($('#responseToggle').prop('checked') == true){
-      map.addLayer(me.responseLayer);
+      me.responseLayer.addTo(me.map);
   }
   else{
       map.removeLayer(me.responseLayer);
@@ -118,4 +133,13 @@ function setBasemap(basemap) {
 function changeBasemap(basemaps){
   var basemap = basemaps.value;
   setBasemap(basemap);
+}
+
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
