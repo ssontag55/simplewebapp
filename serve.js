@@ -1,17 +1,25 @@
-var http = require('http');
-const opn = require('opn')
+/* app Server -- open localhost */
+
+var express = require('express')
+  , request = require('request')
+  , http = require('http'),
+   mime = require('mime');
+
+const port = 3030;
+const opn = require('opn');
+
+var app = express();
+
+//app.use(express.logger('dev')); //no longer
+mime.lookup('.map'); 
 
 
-var server = http.createServer(function (req, res) {
-    var body = 'Amazing lightweight webserver using node.js\n';
-    var content_length = body.length;
-    res.writeHead(200, {
-        'Content-Length': content_length,
-        'Content-Type': 'text/plain' });
- 
-    res.end(body);
+// serve static files
+app.use(express.static(__dirname + '/app'));
+
+// start listening
+app.listen(port, function() {
+  console.log('Listening on port '+port);
 });
 
-server.listen(3030);
-opn('http://localhost:3030');
-console.log('Server is running on port 3030');
+opn('http://localhost:'+port);

@@ -2,14 +2,14 @@
   "name": "simplewebapp",
   "version": "0.0.1",
   "description": "PE Web App",
-  "main": "index.js",
+  "main": "serve.js",
   "scripts": {
     "test": "",
     "test-ci": ""
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/naturalatlas/geomagnetism.git"
+    "url": "https://github.com/ssontag55/simplewebapp.git"
   },
   "keywords": [
     "geo"
@@ -19,7 +19,7 @@
   "author": "Stephen Sontag",
   "license": "Apache License, v2.0",
   "bugs": {
-    "url": "https://github.com/naturalatlas/geomagnetism/issues"
+    "url": "https://github.com/ssontag55/simplewebapp/issues"
   },
-  "homepage": "https://github.com/naturalatlas/geomagnetism"
+  "homepage": "https://github.com/ssontag55/simplewebapp"
 }

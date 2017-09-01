@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="description" content="PE">
+  <title>Prominent Edge App</title>
+  <link rel="stylesheet" href="./assets/leaflet.css">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script src="./lib/jquery-3.1.1.min.js"></script>
+  <script src="./lib/leaflet.min.js"></script>
+  <script src="./lib/esri-leaflet.js"></script>
+  <script src="./app.js"></script> 
+  <!-- <script src="./lib/turf.min.js"></script>  -->
+</head>
+<body>
+  <div id="viewDiv">
+  </div>
+  <div id="homeDiv">
+  </div>
+  <div id="BasemapToggle"></div>
+  <div id="sizeInputDiv">
+    <label>
+    Incident Management
+    </label>
+    <br>
+    <br>
+    <button id="refreshDataID" style="width: 148px;">Loading Layers...</button>
+    <img src="./assets/indeterminate.gif" id="loadinggf" style="float:right;">
+    <div style="float: right;padding-right: 13px;">
+      <input type="checkbox" id="interpLayerToggle" checked style="margin-right:29px">
+      <label for="genheat">Response</label>
+      <input type="checkbox" id="genheat">
+    </div>
+  </div>
+  <div id="basemaps-wrapper" class="leaflet-bar">
+    <select name="basemaps" id="basemaps" onChange="changeBasemap(basemaps)">
+      <option value="Gray">Gray</option>
+      <option value="Topographic">Topographic</option>
+      <option value="Streets">Streets</option>
+      <option value="Oceans">Oceans</option>
+      <option value="DarkGray">Dark Gray</option>
+      <option value="Imagery">Imagery</option>
+      <option value="ShadedRelief">Shaded Relief</option>
+    </select>
+  </div>
+  <script>
+    startupMap();
+  </script>
+</body>
+</html>
