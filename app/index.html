@@ -15,7 +15,7 @@
     crossorigin=""></script>
   <script src="./app.js"></script> 
   <link rel="stylesheet" href="./assets/style.css">
-  <!-- <script src="./lib/turf.min.js"></script>  -->
+  <!-- <script src="./lib/turf.min.js"></script>  for further spatial analysis -->
 </head>
 <body>
   <div id="viewDiv">
@@ -30,16 +30,30 @@
     <br>
     <br>
     <img src="./assets/indeterminate.gif" id="loadinggf" style="float:right;">
-    <div style="padding-right: 13px;">
+    <div style="padding-right: 13px;max-width: 240px">
+      <label id="incidentID"></label>
       <br>
-      <input type="checkbox" id="interpLayerToggle" checked>
-      <label for="genheat">Parcels</label>
+      <label id="incidentFireDept"></label>
+      <br>
+      <label id="incidentresponseTime"></label>
+      <br>
+      <label id="incidentStart"></label>
+      <br>
+      <label id="incidentEnd"></label>
+      <br>
+      <br>
+      <label id="incidentDescription"></label>
+      <br>
+      <br>
+      <input type="checkbox" id="parcelLayerToggle">
+      <label for="parcelLayerToggle">Parcels</label>
+      <br>
+      <input type="checkbox" id="weatherToggle" checked>
+      <label for="weatherToggle">NOAA Precipitation</label>
       <br>
       <input type="checkbox" id="responseToggle" checked>
-      <label for="genheat">Response</label>
-      <br>
-      <input type="checkbox" id="weatherToggle">
-      <label for="genheat">Weather</label>
+      <label for="responseToggle">Response</label>
+      <br>   
     </div>
   </div>
   <div id="basemaps-wrapper" class="leaflet-bar">
